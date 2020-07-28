@@ -20,9 +20,9 @@
       color: #666;
       line-height: 22px;
       }
-      p {
+      p, .row-cell {
         font-weight:bold;
-        color: #01012e;
+        color: #4d4d70
       }
       h1 {
       position: absolute;
@@ -44,22 +44,29 @@
       padding: 20px;
       height: 95%;
       }
+      .testbox-2 {
+        padding: 20px;
+      }
       form {
       width: 100%;
-      padding: 20px;
       border-radius: 6px;
-      background: #eeeeee;
+      padding-top: 20px;
+      background: #edeae4;
+      border-style: solid;
+      border-color:#21262b;
       }
       .banner {
       position: relative;
-      height: 100px;
+      height: 55px;
       background-image: url("/uploads/media/default/0001/01/b42dddca6e6a31b300c6ce26cb9dcac565b2f869.jpeg");
       background-size: cover;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding-top: 20px;
+      padding: 0px;
+      padding-top: 30px;
+      width: 100%;
       }
       .banner::after {
       content: "";
@@ -107,6 +114,16 @@
       position: relative;
       margin: 10px 0;
       }
+
+      .bdate-item-header {
+        text-align: left;
+        margin-top: 10px;
+      }
+      .row-cell {
+        width: calc(30% - 8px);
+        justify-content: left;
+        text-align: left;
+      }
       input[type="date"]::-webkit-inner-spin-button {
       display: none;
       }
@@ -127,13 +144,14 @@
       opacity: 0;
       cursor: pointer;
       }
+
       input[type=radio], input[type=checkbox]  {
       display: none;
       }
       label.radio {
       position: relative;
       display: inline-block;
-      margin: 5px 20px 15px 0;
+      margin-top: 5px;
       cursor: pointer;
       }
       .question span {
@@ -147,6 +165,7 @@
       height: 17px;
       border-radius: 50%;
       border: 2px solid #ccc;
+      background: #ebf5ff;
       }
       input[type=radio]:checked + label:before, label.radio:hover:before {
       border: 2px solid #00a4e4;
@@ -197,17 +216,9 @@
       width: calc(30% - 20px);
       }
       }
-      .bdate-item-header p{
-        text-align: center;
-      }
-      .row-cell {
-        width: calc(30% - 8px);
-        background: #b52ed1;
-        justify-content: left;
-        text-align: left;
-      }
     </style>
   </head>
+
   <body>
     <div class="testbox">
       <form action="/">
@@ -215,76 +226,81 @@
         <div class="banner">
           <h1>Pet Insurance Premium Calculator</h1>
         </div>
-        <div class="item">
-          <div class="bdate-item-header">
-            <div class="row-cell">Pet</div>
-            <div class="row-cell">Pet Age</div>
-          </div>
-          <div class="bdate-item">
-            <input type="date" name="bdate" required/>
-            <i class="fas fa-calendar-alt"></i>
-            <h2> or </h2>
-            <input type="data" name="age"/>
-          </div>
-        </div>
-        <div class="item">
-          <p>Email</p>
-          <input type="email" name="email"/>
-         </div>
-        <div class="item">
-          <p>Phone</p>
-          <input type="text" name="phone" placeholder="### ### ####"/>
-        </div>
-        <div class="question">
-          <p>Gender</p>
-          <div class="question-answer">
-            <div>
-              <input type="radio" value="none" id="radio_1" name="gender"/>
-              <label for="radio_1" class="radio"><span>Male</span></label>
-            </div>
-            <div>
-              <input type="radio" value="none" id="radio_2" name="gender"/>
-              <label for="radio_2" class="radio"><span>Female</span></label>
-            </div>
-          </div>
-        </div>
+        <div class="testbox-2">
           <div class="item">
-            <p>Language</p>
-            <input type="text" name="language"/>
+            <div class="bdate-item-header">
+              <div class="row-cell">Pet DOB</div>
+              <div class="row-cell">Pet Age</div>
+            </div>
+            <div class="bdate-item">
+              <input type="date" name="bdate" required/>
+              <i class="fas fa-calendar-alt"></i>
+              <h2> or </h2>
+              <input type="data" name="age"/>
+            </div>
           </div>
-        <div class="item">
-          <p>Address</p>
-          <input type="text" name="name" placeholder="Street address" required/>
-          <input type="text" name="name" placeholder="Street address line 2" required/>
-          <div class="city-item">
-            <input type="text" name="name" placeholder="City" required/>
-            <input type="text" name="name" placeholder="Region" required/>
-            <input type="text" name="name" placeholder="Postal / Zip code" required/>
-            <select required>
-              <option value="">Country</option>
-              <option value="1">Russia</option>
-              <option value="2">Germany</option>
-              <option value="3">France</option>
-              <option value="4">Armenia</option>
-              <option value="5">USA</option>
-            </select>
+          <div class="bdate-item-header">
+            <div class="question">
+              <p>Gender</p>
+              <div class="question-answer">
+                <div>
+                  <input type="radio" value="none" id="radio_1" name="gender"/>
+                  <label for="radio_1" class="radio"><span>Male</span></label>
+                </div>
+                <div>
+                  <input type="radio" value="none" id="radio_2" name="gender"/>
+                  <label for="radio_2" class="radio"><span>Female</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="question">
+              <p>Experienced Owner</p>
+              <div class="question-answer">
+                <div>
+                  <input type="radio" value="none" id="radio_3" name="Exp"/>
+                  <label for="radio_3" class="radio"><span>Yes</span></label>
+                </div>
+                <div>
+                  <input type="radio" value="none" id="radio_4" name="NoExp"/>
+                  <label for="radio_4" class="radio"><span>No</span></label>
+                </div>
+              </div>
+            </div>
+            <div></div>
+          </div>
+          <div class="item">
+            <p>Address</p>
+            <div class="city-item">
+              <input type="text" name="name" placeholder="City" required/>
+              <input type="text" name="name" placeholder="Region" required/>
+              <input type="text" name="name" placeholder="Postal / Zip code" required/>
+              <select required>
+                <option value="">Country</option>
+                <option value="1">Russia</option>
+                <option value="2">Germany</option>
+                <option value="3">France</option>
+                <option value="4">Armenia</option>
+                <option value="5">USA</option>
+              </select>
+            </div>
+          </div>
+          <div class="item">
+            <p>Experience in Yoga</p>
+            <textarea rows="3"></textarea>
+          </div>
+          <div class="item">
+            <p>Illness (if any)</p>
+            <input type="text" name="illness" />
+          </div>
+          <div class="item">
+            <p>Additional Message</p>
+            <textarea rows="3"></textarea>
+          </div>
+          <div class="btn-block">
+            <button type="submit" href="/">Calculate Premium</button>
           </div>
         </div>
-        <div class="item">
-          <p>Experience in Yoga</p>
-          <textarea rows="3"></textarea>
-        </div>
-        <div class="item">
-          <p>Illness (if any)</p>
-          <input type="text" name="illness" />
-        </div>
-        <div class="item">
-          <p>Additional Message</p>
-          <textarea rows="3"></textarea>
-        </div>
-        <div class="btn-block">
-          <button type="submit" href="/">Calculate Premium</button>
-        </div>
+
       </form>
     </div>
   </body>
