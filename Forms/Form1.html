@@ -102,7 +102,8 @@
       width: calc(100% - 12px);
       padding: 5px;
       }
-      .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+      .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder,
+        .item:hover div {
       color: #00a4e4;
       }
       .item input:hover, .item select:hover, .item textarea:hover {
@@ -114,10 +115,13 @@
       position: relative;
       margin: 10px 0;
       }
-
       .bdate-item-header {
         text-align: left;
-        margin-top: 10px;
+        margin-top: 0px;
+      }
+
+      .row-cell.center_p {
+        text-align: center;
       }
       .row-cell {
         width: calc(30% - 8px);
@@ -153,6 +157,10 @@
       display: inline-block;
       margin-top: 5px;
       cursor: pointer;
+      }
+      .question {
+        display: flex;
+        width: calc(30% - 8px);
       }
       .question span {
       margin-left: 30px;
@@ -239,34 +247,40 @@
               <input type="data" name="age"/>
             </div>
           </div>
-          <div class="bdate-item-header">
-            <div class="question">
-              <p>Gender</p>
-              <div class="question-answer">
-                <div>
-                  <input type="radio" value="none" id="radio_1" name="gender"/>
-                  <label for="radio_1" class="radio"><span>Male</span></label>
-                </div>
-                <div>
-                  <input type="radio" value="none" id="radio_2" name="gender"/>
-                  <label for="radio_2" class="radio"><span>Female</span></label>
+          <div>
+            <div class="bdate-item-header">
+                <p class="row-cell">Gender</p>
+                <p class="row-cell center_p">Experience</p>
+                <p class="row-cell"></p>
+            </div>
+            <div class="bdate-item-header">
+              <div class="question">
+                <div class="question-answer">
+                  <div>
+                    <input type="radio" value="none" id="radio_1" name="gender"/>
+                    <label for="radio_1" class="radio"><span>Male</span></label>
+                  </div>
+                  <div>
+                    <input type="radio" value="none" id="radio_2" name="gender"/>
+                    <label for="radio_2" class="radio"><span>Female</span></label>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="question">
-              <p>Experienced Owner</p>
-              <div class="question-answer">
-                <div>
-                  <input type="radio" value="none" id="radio_3" name="Exp"/>
-                  <label for="radio_3" class="radio"><span>Yes</span></label>
-                </div>
-                <div>
-                  <input type="radio" value="none" id="radio_4" name="NoExp"/>
-                  <label for="radio_4" class="radio"><span>No</span></label>
+              <div class="question" style="justify-content: center;
+                padding-right: 18px;">
+                <div class="question-answer">
+                  <div>
+                    <input type="radio" value="none" id="radio_3" name="Exp"/>
+                    <label for="radio_3" class="radio"><span>Yes</span></label>
+                  </div>
+                  <div>
+                    <input type="radio" value="none" id="radio_4" name="Exp"/>
+                    <label for="radio_4" class="radio"><span>No</span></label>
+                  </div>
                 </div>
               </div>
+              <div class="question"></div>
             </div>
-            <div></div>
           </div>
           <div class="item">
             <p>Address</p>
