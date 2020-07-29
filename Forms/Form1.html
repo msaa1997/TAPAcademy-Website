@@ -17,9 +17,18 @@
       </div>
       <div class="testbox-2">
         <div class="item">
+          <p>To get started, please select the breed of your pet:</p>
+          <select required>
+            <option value="" selected disabled hidden>Select Pet Breed</option>
+            <option value="companion">Companion</option>
+            <option value="sporting">Sporting</option>
+            <option value="Guarding">Guarding</option>
+          </select>
+        </div>
+        <div class="item">
           <div class="bdate-item-header">
-            <div class="row-cell">Pet DOB</div>
-            <div class="row-cell">Pet Age</div>
+            <div class="row-cell">Enter Pet DOB:</div>
+            <div class="row-cell">Pet Age in Years:</div>
           </div>
           <div class="bdate-item">
             <input type="date" name="bdate" required />
@@ -30,7 +39,7 @@
         </div>
         <div>
           <div class="bdate-item-header">
-            <p class="row-cell">Gender of Pet</p>
+            <p class="row-cell">Gender of Pet:</p>
             <p class="row-cell">Is your pet spayed/neutered?</p>
             <p class="row-cell">Are you an experienced pet owner?</p>
           </div>
@@ -74,7 +83,7 @@
           </div>
         </div>
         <div class="item">
-          <p>Address</p>
+          <p>Now, please enter your address:</p>
           <div class="city-item">
             <input type="text" name="name" placeholder="City" required />
             <select required>
@@ -133,15 +142,11 @@
             </select>
             <input type="text" name="name" placeholder="Postal / Zip code" required />
             <select required>
-              <option value="">Select Home Type</option>
+              <option value="" selected disabled hidden>Select Home Type</option>
               <option value="house">House</option>
               <option value="apt">Apartment</option>
             </select>
           </div>
-        </div>
-        <div class="item">
-          <p>Experience in Yoga</p>
-          <textarea rows="3"></textarea>
         </div>
         <div class="item">
           <p>Additional Message</p>
