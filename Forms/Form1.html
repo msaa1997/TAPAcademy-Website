@@ -10,7 +10,7 @@
 
 <body>
   <div class="testbox">
-    <form action="/">
+    <form method="post" action="process.php">
       <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/AIG_logo.svg" alt="AIG Logo" class="center">
       <div class="banner">
         <h1>Dog Insurance Premium Calculator</h1>
@@ -18,11 +18,11 @@
       <div class="testbox-2">
         <div class="item">
           <p>To get started, please select the breed of your Dog:</p>
-          <select required>
-            <option value="" selected disabled hidden>Select Dog Breed</option>
+          <select name="pet_breed" required>
+            <option value="none" selected disabled hidden>Select Dog Breed</option>
             <option value="companion">Companion</option>
             <option value="sporting">Sporting</option>
-            <option value="Guarding">Guarding</option>
+            <option value="guarding">Guarding</option>
           </select>
         </div>
         <div class="item">
@@ -31,10 +31,10 @@
             <div class="row-cell">Dog Age in Years:</div>
           </div>
           <div class="bdate-item">
-            <input type="date" name="bdate" required />
+            <input type="date" name="pet_dob" required />
             <i class="fas fa-calendar-alt"></i>
             <h2> or </h2>
-            <input type="data" name="age" />
+            <input type="data" name="pet_age" />
           </div>
         </div>
         <div>
@@ -47,11 +47,11 @@
             <div class="question">
               <div class="question-answer">
                 <div>
-                  <input type="radio" value="none" id="radio_1" name="gender" />
+                  <input type="radio" value="male" id="radio_1" name="pet_gender" />
                   <label for="radio_1" class="radio"><span>Male</span></label>
                 </div>
                 <div>
-                  <input type="radio" value="none" id="radio_2" name="gender" />
+                  <input type="radio" value="female" id="radio_2" name="pet_gender" />
                   <label for="radio_2" class="radio"><span>Female</span></label>
                 </div>
               </div>
@@ -59,23 +59,23 @@
             <div class="question" style=justify-content:left; padding-right: 18px;>
               <div class="question-answer">
                 <div>
-                  <input type="radio" value="none" id="fixed" name="fixedstatus" />
-                  <label for="fixed" class="radio"><span>Yes, my Dog is spayed/neutered.</span></label>
+                  <input type="radio" value="yes" id="fixed" name="pet_spayneuter" />
+                  <label for="fixed" class="radio"><span>Yes, my dog is spayed/neutered.</span></label>
                 </div>
                 <div>
-                  <input type="radio" value="none" id="notfixed" name="fixedstatus" />
-                  <label for="notfixed" class="radio"><span>No, my Dog is not spayed/neutered.</span></label>
+                  <input type="radio" value="no" id="notfixed" name="pet_spayneuter" />
+                  <label for="notfixed" class="radio"><span>No, my dog is not spayed/neutered.</span></label>
                 </div>
               </div>
             </div>
             <div class="question" style=justify-content:left;>
               <div class="question-answer">
                 <div>
-                  <input type="radio" value="none" id="radio_3" name="Exp" />
+                  <input type="radio" value="yes" id="radio_3" name="user_experience" />
                   <label for="radio_3" class="radio"><span>Yes</span></label>
                 </div>
                 <div>
-                  <input type="radio" value="none" id="radio_4" name="Exp" />
+                  <input type="radio" value="no" id="radio_4" name="user_experience" />
                   <label for="radio_4" class="radio"><span>No</span></label>
                 </div>
               </div>
@@ -85,7 +85,7 @@
         <div class="item">
           <p>Now, please enter your address:</p>
           <div class="city-item">
-            <input type="text" name="name" placeholder="City" required />
+            <input type="text" name="user_city" placeholder="City" required />
             <select required>
               <option value="" selected disabled hidden>Select State</option>
               <option value="AL">Alabama</option>
@@ -140,9 +140,9 @@
               <option value="WI">Wisconsin</option>
               <option value="WY">Wyoming</option>
             </select>
-            <input type="text" name="name" placeholder="Postal / Zip code" required />
-            <select required>
-              <option value="" selected disabled hidden>Select Home Type</option>
+            <input type="text" name="user_zip" placeholder="Postal / Zip code" required />
+            <select name="user_home" required>
+              <option value="">Select Home Type</option>
               <option value="house">House</option>
               <option value="apt">Apartment</option>
             </select>
@@ -150,10 +150,14 @@
         </div>
         <div class="item">
           <p>Additional Message</p>
-          <textarea rows="3"></textarea>
+          <textarea name="user_message" rows="3"></textarea>
         </div>
         <div class="btn-block">
           <button type="submit" href="/">Calculate Premium</button>
+        </div>
+        <div class="btn-block">
+          <p>Click the buttom below to call a representative: </p>
+          <button type="submit" href="/" >Call a Representative</button>
         </div>
       </div>
 
