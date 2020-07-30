@@ -13,13 +13,22 @@
     <form action="/">
       <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/AIG_logo.svg" alt="AIG Logo" class="center">
       <div class="banner">
-        <h1>Pet Insurance Premium Calculator</h1>
+        <h1>Dog Insurance Premium Calculator</h1>
       </div>
       <div class="testbox-2">
         <div class="item">
+          <p>To get started, please select the breed of your Dog:</p>
+          <select required>
+            <option value="" selected disabled hidden>Select Dog Breed</option>
+            <option value="companion">Companion</option>
+            <option value="sporting">Sporting</option>
+            <option value="Guarding">Guarding</option>
+          </select>
+        </div>
+        <div class="item">
           <div class="bdate-item-header">
-            <div class="row-cell">Pet DOB</div>
-            <div class="row-cell">Pet Age</div>
+            <div class="row-cell">Enter Dog DOB:</div>
+            <div class="row-cell">Dog Age in Years:</div>
           </div>
           <div class="bdate-item">
             <input type="date" name="bdate" required />
@@ -30,9 +39,9 @@
         </div>
         <div>
           <div class="bdate-item-header">
-            <p class="row-cell">Gender of Pet</p>
-            <p class="row-cell">Is your pet spayed/neutered?</p>
-            <p class="row-cell">Are you an experienced pet owner?</p>
+            <p class="row-cell">Gender of Dog:</p>
+            <p class="row-cell">Is your Dog spayed/neutered?</p>
+            <p class="row-cell">Are you an experienced Dog owner?</p>
           </div>
           <div class="bdate-item-header">
             <div class="question">
@@ -51,11 +60,11 @@
               <div class="question-answer">
                 <div>
                   <input type="radio" value="none" id="fixed" name="fixedstatus" />
-                  <label for="fixed" class="radio"><span>Yes, my pet is spayed/neutered.</span></label>
+                  <label for="fixed" class="radio"><span>Yes, my Dog is spayed/neutered.</span></label>
                 </div>
                 <div>
                   <input type="radio" value="none" id="notfixed" name="fixedstatus" />
-                  <label for="notfixed" class="radio"><span>No, my pet is not spayed/neutered.</span></label>
+                  <label for="notfixed" class="radio"><span>No, my Dog is not spayed/neutered.</span></label>
                 </div>
               </div>
             </div>
@@ -74,7 +83,7 @@
           </div>
         </div>
         <div class="item">
-          <p>Address</p>
+          <p>Now, please enter your address:</p>
           <div class="city-item">
             <input type="text" name="name" placeholder="City" required />
             <select required>
@@ -133,15 +142,11 @@
             </select>
             <input type="text" name="name" placeholder="Postal / Zip code" required />
             <select required>
-              <option value="">Select Home Type</option>
+              <option value="" selected disabled hidden>Select Home Type</option>
               <option value="house">House</option>
               <option value="apt">Apartment</option>
             </select>
           </div>
-        </div>
-        <div class="item">
-          <p>Experience in Yoga</p>
-          <textarea rows="3"></textarea>
         </div>
         <div class="item">
           <p>Additional Message</p>

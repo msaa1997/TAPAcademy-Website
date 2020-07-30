@@ -57,11 +57,12 @@ h2 {
 
 form {
   width: 100%;
-  border-radius: 2px;
   padding-top: 20px;
   background: #eeeeee;
+  border-radius: 10px;
   border-style: solid;
   border-color: #838383;
+  box-shadow: 0 0 20px 0 #244359;
 }
 
 .banner {
@@ -91,6 +92,9 @@ form {
   margin-left: auto;
   margin-right: auto;
   width: 20%;
+  border-radius: 2px;
+  border-style: solid;
+  border-color: #838383;
 }
 
 input,
@@ -155,7 +159,7 @@ input:hover::placeholder,
 }
 
 .row-cell {
-  width: calc(30% - 8px);
+  width: calc(30% - 10px);
   justify-content: left;
   text-align: left;
 }
@@ -279,6 +283,6 @@ button:hover {
   }
 
   .city-item select {
-    width: calc(30% - 20px);
+    width: calc(30% - 10px);
   }
 }
