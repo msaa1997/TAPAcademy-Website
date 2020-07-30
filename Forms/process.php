@@ -31,25 +31,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//Check it is comming from a form
     $u_city = filter_var($_POST["user_city"], FILTER_SANITIZE_STRING);
 	$u_zip = filter_var($_POST["user_zip"], FILTER_SANITIZE_STRING);
     $u_home = filter_var($_POST["user_home"], FILTER_SANITIZE_STRING);
-    $u_message = filter_var($_POST["user_message"], FILTER_SANITIZE_STRING);
-    
+    $u_message = filter_var($_POST["user_message"], FILTER_SANITIZE_STRING); 
+
+	if($p_age == ""){
+		$today = date("Y-m-d");
+		$p_age = date_diff(date_create($p_dob), date_create($today))->format("%y");
+	}
+   
 	function calculatePremium(){
-		global $mysqli, $id, $p_dob, $p_age, $p_gender, $p_spayneuter, $u_experience, $u_city, $u_zip, $u_home, $u_message, $premium, $premium_calculator;
+		global $mysqli, $id, $p_breed, $p_dob, $p_age, $p_gender, $p_spayneuter, $u_experience, $u_city, $u_zip, $u_home, $u_message, $premium, $premium_calculator;
 		$curl = curl_init();
 		$cal_request_address = $premium_calculator."?";
 		
-		if($p_age == ""){
-			echo $p_dob."<br>";
-			$cal_request_address = $cal_request_address."page=7&";
-		}else{
-			$cal_request_address = $cal_request_address."page=7&";
-		}
-
-		$cal_request_address = $cal_request_address."bread=companion&";//TODO when bread implemented
+		$cal_request_address = $cal_request_address."page=$p_age&";
+		$cal_request_address = $cal_request_address."bread=$p_breed&";
 		$cal_request_address = $cal_request_address."loca=$u_home&";
-		$cal_request_address = $cal_request_address."repr=$p_spayneuter&";
-		$cal_request_address = $cal_request_address."cage="."18";//TODO when user age is implemented
-
+		$cal_request_address = $cal_request_address."repr=$p_spayneuter";
 		
 		curl_setopt($curl, CURLOPT_URL, $cal_request_address);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
