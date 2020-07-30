@@ -9,5 +9,9 @@ xhttp.onreadystatechange = function() {
 		document.getElementById("premiumValue").innerHTML = this.responseText;
 	}
 };
+<<<<<<< HEAD
+=======
+console.log("http://ec2-3-87-121-179.compute-1.amazonaws.com/Forms/retrievePremium.php?id="+id);
+>>>>>>> Design-Changes
 xhttp.open("POST", "http://ec2-3-87-121-179.compute-1.amazonaws.com/Forms/retrievePremium.php?id="+id, true);
 xhttp.send("Your JSON Data Here");
