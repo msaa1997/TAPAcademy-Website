@@ -22,8 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//Check it is comming from a form
 	$premium = "error";
 	$premium_calculator = "http://ec2-3-87-121-179.compute-1.amazonaws.com/premiumCalV2.php";
 
-	$p_dob = filter_var($_POST["pet_dob"], FILTER_SANITIZE_STRING); //set PHP variables like this so we can use them anywhere in code below
-	$p_age = filter_var($_POST["pet_age"], FILTER_SANITIZE_NUMBER_INT);
+	$p_breed = filter_var($_POST["pet_breed"], FILTER_SANITIZE_STRING); //set PHP variables like this so we can use them anywhere in code below
+	$p_dob = filter_var($_POST["pet_dob"], FILTER_SANITIZE_STRING);
+	$p_age = filter_var($_POST["pet_age"], FILTER_SANITIZE_STRING);
     $p_gender = filter_var($_POST["pet_gender"], FILTER_SANITIZE_STRING);
     $p_spayneuter = filter_var($_POST["pet_spayneuter"], FILTER_SANITIZE_STRING);
     $u_experience = filter_var($_POST["user_experience"], FILTER_SANITIZE_STRING);
@@ -66,14 +67,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//Check it is comming from a form
 
 
 	function storeInDB(){
-		global $mysqli, $p_dob, $p_age, $p_gender, $p_spayneuter, $u_experience, $u_city, $u_zip, $u_home, $u_message;
-	
-	
-		    //$statement = $mysqli->prepare("INSERT INTO test3 (pet_bdate, pet_age, gender, experience, user_city, user_region, user_zip, user_country, pet_illness, user_message) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)"); //prepare sql insert query
-		$statement = "INSERT INTO test4 (pet_dob, pet_age, pet_gender, pet_spayneuter, user_experience, user_city, user_zip, user_home, user_message) 
-		VALUES ($p_dob, $p_age, '$p_gender', '$p_spayneuter', '$u_experience', '$u_city', '$u_zip', '$u_home', '$u_message')";
-		//bind parameters for markers, where (s = string, i = integer, d = double,  b = blob)
-		//$statement->bind_param('sissssssss', $u_bdate, $u_age, $u_gender, $u_exp, $u_city, $u_region, $u_zip, $u_country, $u_illness, $u_message); //bind values and execute insert query
+		global $mysqli, $p_breed, $p_dob, $p_age, $p_gender, $p_spayneuter, $u_experience, $u_city, $u_zip, $u_home, $u_message;
+		
+		$statement = "INSERT INTO test5 (pet_breed, pet_dob, pet_age, pet_gender, pet_spayneuter, user_experience, user_city, user_zip, user_home, user_message) 
+		VALUES ('$p_breed', '$p_dob', '$p_age', '$p_gender', '$p_spayneuter', '$u_experience', '$u_city', '$u_zip', '$u_home', '$u_message')";
 	
 		if(mysqli_query($mysqli, $statement)) {
 			print 'Hello!, it worked! (maybe)';
@@ -91,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//Check it is comming from a form
 
 	echo "$id<br>";
 	calculatePremium();
-//	storeInDB();
+    storeInDB();
 	returnPremiumPage();
 
 	mysqli_close($mysqli);
