@@ -18,7 +18,7 @@
 	
 	$id = $_GET['id'];
 
-	$query = "SELECT premium FROM premiums WHERE id='$id'";
+	$query = "SELECT premium FROM users WHERE id='$id'";
 	$result = $mysqli->query($query);
 	if($result->num_rows>0){
 		while($row = $result->fetch_assoc()){

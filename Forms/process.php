@@ -53,29 +53,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//Check it is comming from a form
 		$premium = curl_exec($curl);
 		curl_close($curl);
 		
-		$statement = "INSERT INTO premiums (id, premium) VALUES ('$id', '$premium')";
-		if(mysqli_query($mysqli,$statement)){
-			echo "worked";
-		}else{
-			echo $mysqli->error;
-		}
+		// $statement = "INSERT INTO premiums (id, premium) VALUES ('$id', '$premium')";
+		// if(mysqli_query($mysqli,$statement)){
+		// 	echo "worked";
+		// }else{
+		// 	echo $mysqli->error;
+		// }
 	}
 
 
 
-	function storeInDB(){
-		global $mysqli, $p_breed, $p_dob, $p_age, $p_gender, $p_spayneuter, $u_experience, $u_city, $u_zip, $u_home, $u_message;
+	// function storeInDB(){
+	// 	global $mysqli, $p_breed, $p_dob, $p_age, $p_gender, $p_spayneuter, $u_experience, $u_city, $u_zip, $u_home, $u_message;
 		
-		$statement = "INSERT INTO test5 (pet_breed, pet_dob, pet_age, pet_gender, pet_spayneuter, user_experience, user_city, user_zip, user_home, user_message) 
-		VALUES ('$p_breed', '$p_dob', '$p_age', '$p_gender', '$p_spayneuter', '$u_experience', '$u_city', '$u_zip', '$u_home', '$u_message')";
+	// 	$statement = "INSERT INTO test5 (pet_breed, pet_dob, pet_age, pet_gender, pet_spayneuter, user_experience, user_city, user_zip, user_home, user_message) 
+	// 	VALUES ('$p_breed', '$p_dob', '$p_age', '$p_gender', '$p_spayneuter', '$u_experience', '$u_city', '$u_zip', '$u_home', '$u_message')";
 	
-		if(mysqli_query($mysqli, $statement)) {
-			print 'Hello!, it worked! (maybe)';
-		}else{
-			print $mysqli->error; //show mysql error if any
-		}
+	// 	if(mysqli_query($mysqli, $statement)) {
+	// 		print 'Hello!, it worked! (maybe)';
+	// 	}else{
+	// 		print $mysqli->error; //show mysql error if any
+	// 	}
     
-	}
+	// }
 
 	function returnPremiumPage(){
 		global $id;
@@ -83,11 +83,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//Check it is comming from a form
 		header($url);
 	}
 
+
+	function storeData() {
+		global $mysqli, $id, $premium, $p_breed, $p_dob, $p_age, $p_gender, $p_spayneuter, $u_experience, $u_city, $u_zip, $u_home, $u_message, $premium, $premium_calculator;
+
+		$statement = "INSERT INTO users (id, premium, pet_breed, pet_dob, pet_age, pet_gender, pet_spayneuter, user_experience, user_city, user_zip, user_home, user_message) 
+		VALUES ('$id', '$premium', '$p_breed', '$p_dob', '$p_age', '$p_gender', '$p_spayneuter', '$u_experience', '$u_city', '$u_zip', '$u_home', '$u_message')";	
+
+		if(mysqli_query($mysqli, $statement)) {
+			print 'Hello!, it worked! (maybe)';
+		}else{
+			print $mysqli->error; //show mysql error if any
+		}
+	}
+
 	echo "$id<br>";
 	calculatePremium();
-    storeInDB();
+    //storeInDB();
 	returnPremiumPage();
-
+	storeData();
 	mysqli_close($mysqli);
 }
 
